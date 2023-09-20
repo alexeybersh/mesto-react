@@ -174,7 +174,6 @@ function App() {
         title="Вы уверены?"
         submitText="Да"
         onClose={closeAllPopups}>
-          <button type="submit" className="popup__save-button popup__save-button_delete_image popup__save-button_margin_zero">Да</button>
       </PopupWithForm>
       <ImagePopup
         isOpen={isImagePopupOpen}
