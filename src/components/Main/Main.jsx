@@ -24,6 +24,7 @@ export default function Main(props) {
               {props.cards.map((card) =>(
                 <Card
                   card={card}
+                  key= {card._id} 
                   onCardClick={props.onCardClick}
                   cardLink={card.link}
                   cardName={card.name}

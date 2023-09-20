@@ -53,6 +53,8 @@ function App() {
        setUserInfo(userData);
        setCards(allCards);
     })
+
+    .catch((err) => {console.log(err)})
   }, [])
 
   // Эффект для закрытия попапа по ESC
@@ -101,7 +103,6 @@ function App() {
             minLength="2"
             maxLength="40"
             required
-            value=""
           />
           <span className="popup__input-error name-input-error" ></span>
         </label>
@@ -115,7 +116,6 @@ function App() {
             minLength="2"
             maxLength="200"
             required
-            value=""
           />
           <span className="popup__input-error job-input-error" ></span>
         </label>
@@ -136,7 +136,6 @@ function App() {
             maxLength="30"
             placeholder="Название"
             required
-            value=""
           />
           <span className="popup__input-error title-input-error" ></span>
         </label>
@@ -148,7 +147,6 @@ function App() {
             type="url"
             placeholder="Ссылка на картинку"
             required
-            value=""
             />
             <span className="popup__input-error url-input-error" ></span>
         </label>
@@ -167,7 +165,6 @@ function App() {
             type="url"
             placeholder="Ссылка на картинку"
             required
-            value=""
             />
             <span className="popup__input-error avatar-input-error" ></span>
         </label>
@@ -177,9 +174,7 @@ function App() {
         title="Вы уверены?"
         submitText="Да"
         onClose={closeAllPopups}>
-        <form name="popup" className="popup__form">
           <button type="submit" className="popup__save-button popup__save-button_delete_image popup__save-button_margin_zero">Да</button>
-        </form>
       </PopupWithForm>
       <ImagePopup
         isOpen={isImagePopupOpen}
