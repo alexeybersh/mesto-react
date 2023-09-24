@@ -64,7 +64,7 @@ class Api {
       })
   }
 
-  setAvaatar(data){
+  setAvatar(data){
     return this._request(`${this._url}/users/me/avatar`, {
       headers: this._headers,  
       method: 'PATCH',

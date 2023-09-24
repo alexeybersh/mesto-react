@@ -10,12 +10,13 @@ export default function PopupWithForm(props) {
           <form
             name={props.name}
             className={`popup__form popup__form_${props.name}`}
+            onSubmit={props.onSubmit}
             noValidate
           >
             {props.children}
             <button
             type="submit"
-            className={`popup__save-button popup__save-button_${props.name}`}
+            className={`popup__save-button popup__save-button_${props.name} ${props.onDisabled? 'popup__save-button_inactive': ''}`}
             >
               {props.submitText}
             </button>
