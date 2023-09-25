@@ -24,7 +24,7 @@ export default function AddPlacePopup(props) {
   function handleChangeName() {
     if (namePlace.current.value.length < 2 || namePlace.current.value.length > 30) {
       setNameDyrty(1)
-      setNameError('Название не может быть короче 2 символов или длинее 30 симвлов')
+      setNameError('Название не может быть короче 2 символов или длинее 30 символов')
     if (!namePlace.current.value) {
       setNameError("Поле не может быть пустым")
       }
@@ -34,7 +34,7 @@ export default function AddPlacePopup(props) {
   }  
 
   function handleChangeLink() {
-    const urlPattern = new RegExp(/^(?:(?:https?|ftp|telnet):\/\/(?:[a-z0-9_-]{1,32}(?::[a-z0-9_-]{1,32})?@)?)?(?:(?:[a-z0-9-]{1,128}\.)+(?:com|net|org|mil|edu|arpa|ru|gov|biz|info|aero|inc|name|[a-z]{2})|(?!0)(?:(?!0[^.]|255)[0-9]{1,3}\.){3}(?!0|255)[0-9]{1,3})(?:\/[a-z0-9.,_@%&?+=\~\/-]*)?(?:#[^ \'\"&<>]*)?$/i);
+    const urlPattern = new RegExp(/(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/);
     if (!urlPattern.test(linkPlace.current.value)) {
       setLinkDirty(1)
       setLinkError('Неверный адрес страницы')

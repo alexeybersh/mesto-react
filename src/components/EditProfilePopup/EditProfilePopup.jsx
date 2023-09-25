@@ -29,7 +29,7 @@ export default function EditProfilePopup(props) {
       setName(e.target.value);
       if (e.target.value.length < 2 || e.target.value.length > 40) {
         setNameDyrty(1)
-        setNameError('Имя не может быть короче 2 символов или длинее 40 симвлов')
+        setNameError('Имя не может быть короче 2 символов или длинее 40 символов')
       if (!e.target.value) {
         setNameError("Поле не может быть пустым")
         }
@@ -43,7 +43,7 @@ export default function EditProfilePopup(props) {
       setDescription(e.target.value);
       if (e.target.value.length < 2 || e.target.value.length > 200) {
         setJobDirty(1)
-        setJobError('Название не может быть короче 2 символов или длинее 200 симвлов')
+        setJobError('Название не может быть короче 2 символов или длинее 200 символов')
         if (!e.target.value) {
           setJobError("Поле не может быть пустым")
         }
