@@ -159,7 +159,7 @@ function App() {
       function handleOverlay(evt) {
         if(evt.target.classList.contains('popup_opened') !==  evt.target.classList.contains('popup__close-button')) {
           closeAllPopups()
-        };s
+        };
       }    
 
       document.addEventListener('keydown', handleEscape)
