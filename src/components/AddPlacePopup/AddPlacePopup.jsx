@@ -51,6 +51,8 @@ export default function AddPlacePopup(props) {
     setLinkDirty(0)
     namePlace.current.value =""
     linkPlace.current.value =""
+    setNameError("Поле не может быть пустым")
+    setLinkError("Поле не может быть пустым")
     setFormVailed(0)
   }, [props.isOpen])
 

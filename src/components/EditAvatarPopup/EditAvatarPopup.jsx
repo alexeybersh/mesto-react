@@ -24,18 +24,10 @@ export default function EditAvatarPopup(props) {
     } 
   }
 
-  // Ручка для обновления информации после сохранения
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    props.onUpdateAvatar({
-      link: avatarLink.current.value
-    });
-  }   
-      
   useEffect(() => {
     setLinkDirty(0)
     avatarLink.current.value =""
+    setLinkError("Поле не может быть пустым")
     setFormVailed(0)
   }, [props.isOpen])
 
@@ -47,6 +39,15 @@ export default function EditAvatarPopup(props) {
     }
   }, [linkError])
 
+  // Ручка для обновления информации после сохранения
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    props.onUpdateAvatar({
+      link: avatarLink.current.value
+    });
+  } 
+  
   return (
     <PopupWithForm
       name="avatar"

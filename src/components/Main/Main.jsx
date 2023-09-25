@@ -25,7 +25,7 @@ return (
       </section>
       <section className="elements">
         <ul className="elements__list">
-          {props.cards.map((card) =>(
+          {props.cards.map((card) => (
             <Card
               card={card}
               key= {card._id} 
