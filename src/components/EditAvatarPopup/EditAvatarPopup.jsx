@@ -37,7 +37,7 @@ export default function EditAvatarPopup(props) {
     setLinkDirty(0)
     avatarLink.current.value =""
     setFormVailed(0)
-  }, [props.onClose])
+  }, [props.isOpen])
 
   useEffect(() => {
     if(linkError) {

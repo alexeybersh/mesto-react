@@ -8,18 +8,18 @@ export default function EditProfilePopup(props) {
     const [name, setName] = useState('')
     const [description  , setDescription  ] = useState('')  
     const [nameDirty, setNameDyrty] = useState(0)
-    const [nameError, setNameError] = useState("Поле не может быть пустым")
+    const [nameError, setNameError] = useState('')
     const [jobDirty, setJobDirty] = useState(0)
-    const [jobError, setJobError] = useState("Поле не может быть пустым")
+    const [jobError, setJobError] = useState('')
     const [formVailed, setFormVailed] = useState(0)
   
     function bluerHandler(e){
       switch(e.target.name){
         case "name": 
-          setNameDyrty(1)
+          if(!name) setNameDyrty(1)
           break
         case "job":
-          setJobDirty(1)
+          if(!description) setJobDirty(1)
           break
       }
     }
@@ -64,10 +64,10 @@ export default function EditProfilePopup(props) {
       setNameDyrty(0)
       setJobDirty(0)
       setFormVailed(0)
-    }, [props.onClose])
+    }, [props.isOpen])
   
     useEffect(() => {
-      if(jobError || nameError) {
+      if((nameError || jobError))  {
         setFormVailed(0)
       } else {
         setFormVailed(1)

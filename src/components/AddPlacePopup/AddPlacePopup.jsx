@@ -52,7 +52,7 @@ export default function AddPlacePopup(props) {
     namePlace.current.value =""
     linkPlace.current.value =""
     setFormVailed(0)
-  }, [props.onClose])
+  }, [props.isOpen])
 
   useEffect(() => {
     if(linkError || nameError) {

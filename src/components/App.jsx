@@ -146,22 +146,31 @@ function App() {
     .catch((err) => {console.log(err)})
   }, [])
 
-  // Эффект для закрытия попапа по ESC
+  // Эффект для закрытия попапа по ESC и по overlay
   useEffect(() => {
-    document.addEventListener('keydown', (evt) => {
-      if(evt.key == 'Escape') {
-        closeAllPopups()
+    if(isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || isDeleteConfirmPopupOpen || isImagePopupOpen)
+    {
+      function handleEscape(evt) {
+        if(evt.key == 'Escape') {
+          closeAllPopups()
+        }        
       }
-    })
-  }, [])
 
-  // Эффект для закрытия попапа по overlay
-  useEffect(() => {
-    document.addEventListener('mousedown', (evt) => {
-      if(evt.target.classList.contains('popup_opened') !==  evt.target.classList.contains('popup__close-button')) {
-        closeAllPopups()
-      };
-  })}, []);   
+      function handleOverlay(evt) {
+        if(evt.target.classList.contains('popup_opened') !==  evt.target.classList.contains('popup__close-button')) {
+          closeAllPopups()
+        };s
+      }    
+
+      document.addEventListener('keydown', handleEscape)
+      document.addEventListener('mousedown', handleOverlay)
+
+      return() => {
+        document.removeEventListener('keydown', handleEscape)
+        document.removeEventListener('mousedown', handleOverlay)  
+      }
+    }    
+  }, [isEditAvatarPopupOpen, isEditProfilePopupOpen, isAddPlacePopupOpen, isDeleteConfirmPopupOpen, isImagePopupOpen])
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
