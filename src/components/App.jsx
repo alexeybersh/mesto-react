@@ -63,12 +63,21 @@ function App() {
   function handleCardLike(card){
     const isLiked = card.likes.some(i => i._id === currentUser._id);
 
-    api.isLikeAdd(card._id, !isLiked)
+    if (!isLiked){
+    api.isLikeAdd(card._id)
       .then((newCard) => {
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));    
       })
-    
+
       .catch((err) => {console.log(err)})   
+    } else {
+      api.isLikeRemove(card._id)
+      .then((newCard) => {
+      setCards((state) => state.map((c) => c._id === card._id ? newCard : c));    
+      })
+
+      .catch((err) => {console.log(err)})   
+    }
   } 
 
   // Ручка для удаления карточки
