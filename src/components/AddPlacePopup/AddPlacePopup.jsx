@@ -97,7 +97,7 @@ export default function AddPlacePopup(props) {
           onBlur={bluerHandler}
           onChange={handleChangeName}
         />
-        {(nameDirty && nameError)? <span className="popup__input-error title-input-error popup__input-error_active">{nameError}</span>:""}
+        <span className={`popup__input-error title-input-error ${(nameDirty && nameError) && "popup__input-error_active"}`}>{nameError}</span>
       </label>
       <label className="popup__field">
         <input
@@ -111,7 +111,7 @@ export default function AddPlacePopup(props) {
           onBlur={bluerHandler}
           onChange={handleChangeLink}
           />
-          {(linkDirty && linkError)? <span className="popup__input-error url-input-error popup__input-error_active" >{linkError}</span>:""}
+          <span className={`popup__input-error url-input-error ${(linkDirty && linkError) && "popup__input-error_active"}`}>{linkError}</span>
       </label>
     </PopupWithForm>
   )

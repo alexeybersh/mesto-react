@@ -107,7 +107,7 @@ export default function EditProfilePopup(props) {
           onBlur={bluerHandler}
           onChange={handleNameChange}
         />
-        {(nameDirty && nameError)? <span className="popup__input-error name-input-error popup__input-error_active">{nameError}</span>: ''}
+        <span className={`popup__input-error name-input-error ${(nameDirty && nameError)? "popup__input-error_active": ''}`}>{nameError}</span>
       </label>
       <label className="popup__field">
         <input
@@ -123,7 +123,7 @@ export default function EditProfilePopup(props) {
           onBlur={bluerHandler}
           onChange={handledDescriptionChange}
         />
-         {(jobDirty && jobError)? <span className="popup__input-error job-input-error popup__input-error_active">{jobError}</span>: ''}
+         <span className={`popup__input-error job-input-error ${(jobDirty && jobError)? "popup__input-error_active": ''}`}>{jobError}</span>
       </label>
     </PopupWithForm>
   )
